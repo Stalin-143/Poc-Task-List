@@ -22,28 +22,67 @@ This lab aims to familiarize students with essential Linux commands, networking 
 sudo useradd -m -s /bin/bash studentuser
 sudo passwd studentuser
 
-# Switch to studentuser
-sudo su - studentuser
+# Create directory structure as root first
+sudo mkdir -p /home/studentuser/projectX/{logs,scripts}
 
-# Create directory structure
-mkdir -p /home/studentuser/projectX/{logs,scripts}
+# Create welcome.txt file as root
+sudo bash -c 'echo "Welcome to Linux" > /home/studentuser/projectX/welcome.txt'
 
-# Create welcome.txt file
-echo "Welcome to Linux" > /home/studentuser/projectX/welcome.txt
+# Change ownership to studentuser
+sudo chown -R studentuser:studentuser /home/studentuser/projectX
 
 # Set permissions (owner read/write only)
-chmod 600 /home/studentuser/projectX/welcome.txt
+sudo chmod 600 /home/studentuser/projectX/welcome.txt
 
-# Create backup script
-cat > /home/studentuser/projectX/scripts/backup.sh << 'EOF'
+# Create backup script as root
+sudo tee /home/studentuser/projectX/scripts/backup.sh > /dev/null << 'EOF'
 #!/bin/bash
 timestamp=$(date +"%Y%m%d_%H%M%S")
 cp /home/studentuser/projectX/welcome.txt /home/studentuser/projectX/logs/welcome_${timestamp}.txt
 echo "Backup completed: welcome_${timestamp}.txt"
 EOF
 
+# Make script executable and set proper ownership
+sudo chmod +x /home/studentuser/projectX/scripts/backup.sh
+sudo chown studentuser:studentuser /home/studentuser/projectX/scripts/backup.sh
+
+# Test the backup script
+sudo -u studentuser /home/studentuser/projectX/scripts/backup.sh
+
+# Alternative: Switch to studentuser after setup
+# sudo su - studentuser
+# ./projectX/scripts/backup.sh
+```
+<img width="950" height="422" alt="Image" src="https://github.com/user-attachments/assets/5d16f2e0-0014-4475-a3a9-e42c62418d3a" />
+<img width="920" height="446" alt="Image" src="https://github.com/user-attachments/assets/d38f193e-0fb5-4c7d-adff-ffa821b80eca" />
+
+### Alternative Solution (Working as studentuser):
+```bash
+# After creating user, switch to studentuser
+sudo su - studentuser
+
+# Now create directories (this will work since we're in the user's home)
+mkdir -p ~/projectX/{logs,scripts}
+
+# Create welcome.txt file
+echo "Welcome to Linux" > ~/projectX/welcome.txt
+
+# Set permissions (owner read/write only)
+chmod 600 ~/projectX/welcome.txt
+
+# Create backup script
+cat > ~/projectX/scripts/backup.sh << 'EOF'
+#!/bin/bash
+timestamp=$(date +"%Y%m%d_%H%M%S")
+cp ~/projectX/welcome.txt ~/projectX/logs/welcome_${timestamp}.txt
+echo "Backup completed: welcome_${timestamp}.txt"
+EOF
+
 # Make script executable
-chmod +x /home/studentuser/projectX/scripts/backup.sh
+chmod +x ~/projectX/scripts/backup.sh
+
+# Test the backup script
+~/projectX/scripts/backup.sh
 ```
 
 ---
