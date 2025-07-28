@@ -53,8 +53,9 @@ sudo -u studentuser /home/studentuser/projectX/scripts/backup.sh
 # sudo su - studentuser
 # ./projectX/scripts/backup.sh
 ```
-<img width="950" height="422" alt="Image" src="https://github.com/user-attachments/assets/5d16f2e0-0014-4475-a3a9-e42c62418d3a" />
 <img width="920" height="446" alt="Image" src="https://github.com/user-attachments/assets/d38f193e-0fb5-4c7d-adff-ffa821b80eca" />
+
+<img width="950" height="422" alt="Image" src="https://github.com/user-attachments/assets/5d16f2e0-0014-4475-a3a9-e42c62418d3a" />
 
 ### Alternative Solution (Working as studentuser):
 ```bash
