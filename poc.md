@@ -1,6 +1,6 @@
 # Linux & Networking Lab Handout - Arch Linux
 **Date:** 2025-07-04  
-**Instructor:** [Your Name]
+**Instructor:** [
 
 ## Objective
 This lab aims to familiarize students with essential Linux commands, networking tools, and scripting techniques through hands-on tasks. By completing these tasks, students will gain foundational skills for system administration and automation on Arch Linux.
@@ -136,6 +136,11 @@ chmod +x /home/studentuser/projectX/scripts/netinfo.sh
 cd /home/studentuser/projectX/scripts
 ./netinfo.sh
 ```
+<img width="886" height="726" alt="Image" src="https://github.com/user-attachments/assets/dba4e5c0-d23f-49d2-83d7-18ab8734460b" />
+<img width="901" height="970" alt="Image" src="https://github.com/user-attachments/assets/2da9a9b2-51ff-4f58-951d-06ac5c836fc1" />
+<img width="845" height="378" alt="Image" src="https://github.com/user-attachments/assets/06614da7-aff7-4fc5-a7cc-5b887bb6de4d" />
+
+
 
 ---
 
@@ -198,6 +203,12 @@ chmod +x /home/studentuser/projectX/scripts/monitor.sh
 (crontab -l 2>/dev/null; echo "*/5 * * * * /home/studentuser/projectX/scripts/monitor.sh") | crontab -
 ```
 
+<img width="1896" height="584" alt="Image" src="https://github.com/user-attachments/assets/bf6dfcd4-d57b-4ee7-a4f8-e10e2e3fddb3" />
+
+<img width="881" height="654" alt="Image" src="https://github.com/user-attachments/assets/abfa90a5-d28c-40da-9378-34eb90ed8f42" />
+
+<img width="1892" height="623" alt="Image" src="https://github.com/user-attachments/assets/5f8378e7-394b-4212-ac40-b1719c081a5b" />
+
 ---
 
 ## Task 4: File Watcher Script
@@ -237,6 +248,9 @@ chmod +x /home/studentuser/projectX/scripts/watch_dir.sh
 # Run in background
 # /home/studentuser/projectX/scripts/watch_dir.sh &
 ```
+<img width="1905" height="429" alt="Image" src="https://github.com/user-attachments/assets/477ddbcc-5d5b-4272-aba4-2639bfce417a" />
+
+<img width="890" height="447" alt="Image" src="https://github.com/user-attachments/assets/cbe3f620-5bf1-4e00-9f8d-dda2a818a087" />
 
 ---
 
@@ -283,6 +297,7 @@ EOF
 chmod +x /home/studentuser/projectX/scripts/ssh_audit.sh
 /home/studentuser/projectX/scripts/ssh_audit.sh
 ```
+<img width="904" height="478" alt="Image" src="https://github.com/user-attachments/assets/124aa51c-2dc4-4d58-97ee-71c87afdf18d" />
 
 ---
 
@@ -337,6 +352,9 @@ chmod +x /home/studentuser/projectX/scripts/cleanup_logs.sh
 EOF
 ) | crontab -
 ```
+<img width="1031" height="371" alt="Image" src="https://github.com/user-attachments/assets/7d3db03e-2a7f-43c3-9e78-15fbe8f2a9aa" />
+
+<img width="1033" height="241" alt="Image" src="https://github.com/user-attachments/assets/b955922d-8284-4fa5-9584-7aa7b4b3aa43" />
 
 ---
 
@@ -381,6 +399,7 @@ chmod +x /home/studentuser/projectX/scripts/port_scanner.sh
 # Usage example:
 # ./port_scanner.sh 192.168.1.1
 ```
+<img width="911" height="670" alt="Image" src="https://github.com/user-attachments/assets/e7a2bded-74a1-4280-9789-b596546748bc" />
 
 ---
 
@@ -440,6 +459,9 @@ EOF
 chmod +x /home/studentuser/projectX/scripts/site_checker.sh
 /home/studentuser/projectX/scripts/site_checker.sh
 ```
+<img width="948" height="725" alt="Image" src="https://github.com/user-attachments/assets/fd2425bf-2756-417f-ba0e-c7dad180d427" />
+
+<img width="763" height="217" alt="Image" src="https://github.com/user-attachments/assets/d85bf8ec-7f20-47f3-a5a7-a5f33bd519f5" />
 
 ---
 
@@ -496,6 +518,10 @@ EOF
 chmod +x /home/studentuser/projectX/scripts/env_report.sh
 /home/studentuser/projectX/scripts/env_report.sh
 ```
+<img width="873" height="667" alt="Image" src="https://github.com/user-attachments/assets/5ca3e59e-0b5a-4493-879f-7a21aaba50fc" />
+
+<img width="854" height="96" alt="Image" src="https://github.com/user-attachments/assets/fe8bf48d-1617-4d54-9f8f-dc010f6bef69" />
+
 
 ---
 
@@ -570,38 +596,13 @@ dd if=/dev/zero of=/home/studentuser/projectX/logs/small_test.log bs=1K count=50
 # Run the script
 /home/studentuser/projectX/scripts/archive_logs.sh
 ```
+<img width="921" height="893" alt="Image" src="https://github.com/user-attachments/assets/e19ba21b-07b4-4166-ad3b-008429a971e3" />
+
+<img width="1154" height="239" alt="Image" src="https://github.com/user-attachments/assets/466aa044-8294-4328-a0af-b9954e09a1fa" />
 
 ---
 
-## Additional Arch Linux Specific Notes
 
-### Package Management
-```bash
-# Update system
-sudo pacman -Syu
-
-# Install required packages
-sudo pacman -S openssh nginx inotify-tools net-tools bind-tools
-
-# Enable services
-sudo systemctl enable sshd nginx
-sudo systemctl start sshd nginx
-```
-
-### Useful Arch Linux Commands
-```bash
-# Check system information
-neofetch
-inxi -Fxz
-
-# Check logs
-journalctl -f
-journalctl -u nginx.service
-
-# Network configuration
-ip link show
-networkctl status
-```
 
 ### Security Considerations
 - Always run scripts as appropriate users
