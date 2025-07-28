@@ -85,6 +85,7 @@ chmod +x ~/projectX/scripts/backup.sh
 # Test the backup script
 ~/projectX/scripts/backup.sh
 ```
+<img width="786" height="332" alt="Image" src="https://github.com/user-attachments/assets/3d482b6f-cff9-4282-ac67-5b9ff79ebdcb" />
 
 ---
 
