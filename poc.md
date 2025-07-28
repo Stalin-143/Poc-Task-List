@@ -1,6 +1,6 @@
 # Linux & Networking Lab Handout - Arch Linux
 **Date:** 2025-07-04  
-**Instructor:** [
+**Instructor:** 5t4l1n
 
 ## Objective
 This lab aims to familiarize students with essential Linux commands, networking tools, and scripting techniques through hands-on tasks. By completing these tasks, students will gain foundational skills for system administration and automation on Arch Linux.
